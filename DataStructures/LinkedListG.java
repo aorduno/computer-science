@@ -1,56 +1,56 @@
 package DataStructures;
 
-public class LinkedList {
-    private Node _head;
+public class LinkedListG<T> {
+    private NodeG _head;
 
-    public Node getHead() {
+    public NodeG getHead() {
         return _head;
     }
 
-    public void setHead(Node head) {
+    public void setHead(NodeG head) {
         _head = head;
     }
 
     // add at the end
-    public void append(int data) {
+    public void append(T data) {
         if (_head == null) {
-            _head = new Node(data);
+            _head = new NodeG<>(data);
             return;
         }
 
-        Node current = _head;
+        NodeG current = _head;
         while (current._next != null) {
             current = current._next;
         }
 
-        current._next = new Node(data);
+        current._next = new NodeG<>(data);
     }
 
     // add at the beginning
-    void preprend(int data) {
+    void preprend(T data) {
         if (_head == null) {
-            _head = new Node(data);
+            _head = new NodeG<>(data);
             return;
         }
 
-        Node newNode = new Node(data);
+        NodeG newNode = new NodeG<>(data);
         newNode._next = _head;
         _head = newNode;
     }
 
-    void delete(int data) {
+    void delete(T data) {
         if (_head == null) {
             return;
         }
 
-        if (_head._data == data) {
+        if (_head._data.equals(data)) {
             _head = _head._next;
             return;
         }
 
-        Node current = _head;
+        NodeG current = _head;
         while (current._next != null) {
-            if (current._next._data == data) {
+            if (current._next._data.equals(data)) {
                 current._next = current._next._next;
                 return;
             }
@@ -60,7 +60,7 @@ public class LinkedList {
     }
 
     public void print() {
-        Node current = _head;
+        NodeG current = _head;
         System.out.print("Printing linkedList values: " + current._data);
         while (current._next != null) {
             System.out.print(" " + current._next._data);
@@ -70,8 +70,8 @@ public class LinkedList {
         System.out.println();
     }
 
-    public static void print(Node node) {
-        Node current = node;
+    public static void print(NodeG node) {
+        NodeG current = node;
         System.out.print("Printing linkedList values: " + current._data);
         while (current._next != null) {
             System.out.print(" -> " + current._next._data);

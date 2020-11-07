@@ -8,8 +8,8 @@ import java.util.Set;
 
 public class NodeBinaryTree {
     int _data;
-    private NodeBinaryTree _left;
-    private NodeBinaryTree _right;
+    public NodeBinaryTree _left;
+    public NodeBinaryTree _right;
 
     public NodeBinaryTree getLeft() {
         return _left;
@@ -163,6 +163,9 @@ public class NodeBinaryTree {
         return isBalanced(nodeBinaryTree);
     }
 
+    /**
+     * THIS DOES NOT WORK PROPERLY!
+     */
     private boolean isBalanced(NodeBinaryTree nodeBinaryTree) {
         if (nodeBinaryTree == null) {
             return true;
@@ -199,9 +202,23 @@ public class NodeBinaryTree {
 
 //        System.out.println("Tree height: " + tree4.getHeight(tree4));
 //        System.out.println("Node Tree height: " + tree4.getNodeHeight(tree4));
-        System.out.println("Node Tree isBalanced: " + tree4.isNodeBalanced(tree4));
+//        System.out.println("Node Tree isBalanced: " + tree4.isNodeBalanced(tree4));
 
         String abc = "";
+        testCase1();
+    }
+
+    public static void testCase1() {
+        NodeBinaryTree root = new NodeBinaryTree(1);
+        root._left = new NodeBinaryTree(2);
+        root._left._left = new NodeBinaryTree(4);
+        root._left._right = new NodeBinaryTree(5);
+        root._left._left._left = new NodeBinaryTree(7);
+
+        root._right = new NodeBinaryTree(3);
+        root._right._right = new NodeBinaryTree(6);
+        root._right._right._right = new NodeBinaryTree(9);
+        System.out.println("Node Tree isBalanced: " + root.isNodeBalanced(root));
     }
 
     public int getData() {
