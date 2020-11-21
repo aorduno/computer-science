@@ -28,4 +28,12 @@ public class ArrayUtils {
         System.out.println();
     }
 
+    public static void printMatrix(char[][] board) {
+        for (char[] aMatrix : board) {
+            for (char anAMatrix : aMatrix) {
+                System.out.print(anAMatrix + "\t\t");
+            }
+            System.out.println();
+        }
+    }
 }
