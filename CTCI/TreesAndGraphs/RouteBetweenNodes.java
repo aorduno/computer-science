@@ -1,7 +1,7 @@
 package CTCI.TreesAndGraphs;
 
-import DataStructures.GraphG;
-import DataStructures.GraphNodeG;
+import DataStructures.Graph.GraphG;
+import DataStructures.Graph.GraphNodeG;
 import DataStructures.QueueG;
 
 import java.util.HashMap;

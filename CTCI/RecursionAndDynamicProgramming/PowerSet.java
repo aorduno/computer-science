@@ -13,10 +13,10 @@ public class PowerSet {
     }
 
     private static void testCase(int[] numbers) {
-        LogUtils.logMessage("[[PowerSet]] Calculating all subsets for given set");
+        LogUtils.logMessage("[[PowerSet]] Calculating all subsets for given set", true);
         ArrayUtils.print(numbers);
         List<int[]> powerSet = computePowerSet(numbers);
-        LogUtils.logMessage("Here's your power set:");
+        LogUtils.logMessage("Here's your power set:", true);
         print(powerSet);
 
     }

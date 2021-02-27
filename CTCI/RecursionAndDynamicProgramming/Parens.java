@@ -16,14 +16,14 @@ public class Parens {
     }
 
     private static void testCase(int numberOfParens, boolean doOptimized) {
-        LogUtils.logMessage("[[Parens" + (doOptimized ? "Optimized" : "") + "]] Generating different valid combinations of " + numberOfParens + " pair of parentheses.");
+        LogUtils.logMessage("[[Parens" + (doOptimized ? "Optimized" : "") + "]] Generating different valid combinations of " + numberOfParens + " pair of parentheses.", true);
         Collection<String> combinations;
         if (doOptimized) {
             combinations = generateParens(numberOfParens);
-            LogUtils.logMessage("Found " + combinations.size() + " combinations");
+            LogUtils.logMessage("Found " + combinations.size() + " combinations", true);
         } else {
             combinations = generate(numberOfParens);
-            LogUtils.logMessage("Found " + combinations.size() + " combinations");
+            LogUtils.logMessage("Found " + combinations.size() + " combinations", true);
         }
 
         print(combinations);
@@ -32,9 +32,9 @@ public class Parens {
 
     private static void print(Collection<String> combinations) {
         for (String combination : combinations) {
-            LogUtils.logMessage(combination);
+            LogUtils.logMessage(combination, true);
         }
-        LogUtils.logMessage("");
+        LogUtils.logMessage("", true);
     }
 
     private static Set<String> generate(int numberOfParens) {

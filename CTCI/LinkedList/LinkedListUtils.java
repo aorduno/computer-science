@@ -16,7 +16,7 @@ public class LinkedListUtils {
         return linkedList;
     }
 
-    static LinkedList createList(int[] numbers) {
+    public static LinkedList createList(int[] numbers) {
         LinkedList linkedList = new LinkedList();
         for (int number : numbers) {
             linkedList.append(number);
@@ -25,7 +25,7 @@ public class LinkedListUtils {
         return linkedList;
     }
 
-    static LinkedListG createListG(int[] numbers) {
+    public static LinkedListG createListG(int[] numbers) {
         LinkedListG linkedList = new LinkedListG<>();
         for (int number : numbers) {
             linkedList.append(number);

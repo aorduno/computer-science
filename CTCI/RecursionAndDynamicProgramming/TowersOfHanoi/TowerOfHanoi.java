@@ -57,7 +57,7 @@ public class TowerOfHanoi {
 
     private void add(Disk disk) {
         if (!getTower().isEmpty() && (getTower().peek().getSize() < disk.getSize())) {
-            LogUtils.logMessage("Invalid move found! Can not move disk " + disk.getSize() + " to T" + getName() + " since disk at top is " + getTower().peek().getSize());
+            LogUtils.logMessage("Invalid move found! Can not move disk " + disk.getSize() + " to T" + getName() + " since disk at top is " + getTower().peek().getSize(), true);
             return;
         }
 

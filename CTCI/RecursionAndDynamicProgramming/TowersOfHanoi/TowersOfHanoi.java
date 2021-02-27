@@ -33,7 +33,7 @@ public class TowersOfHanoi {
     }
 
     private static void testCase(int disks) {
-        LogUtils.logMessage("[[TowersOfHanoi]] Figuring out towers of hanoi for number of disks: " + disks);
+        LogUtils.logMessage("[[TowersOfHanoi]] Figuring out towers of hanoi for number of disks: " + disks, true);
 
         TowersOfHanoi towersOfHanoi = createBoard(disks);
         resolve(towersOfHanoi);
@@ -48,9 +48,9 @@ public class TowersOfHanoi {
     }
 
     private static void printMoves(List<Move> moveList) {
-        LogUtils.logMessage("Here are the moves to resolve it:");
+        LogUtils.logMessage("Here are the moves to resolve it:", true);
         for (Move move : moveList) {
-            LogUtils.logMessage("Move disk " + move.getDisk().getSize() + " from T" + move.getFrom().getNumber() + " to T" + move.getTo().getNumber());
+            LogUtils.logMessage("Move disk " + move.getDisk().getSize() + " from T" + move.getFrom().getNumber() + " to T" + move.getTo().getNumber(), true);
         }
     }
 

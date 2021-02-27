@@ -53,17 +53,17 @@ public class RobonOnGrid {
     }
 
     private static void testCase(int[][] grid) {
-        LogUtils.logMessage("[[RobotOnGrid]] finding path to goal (" + (grid[0].length - 1) + ", " + (grid.length - 1) + ")");
+        LogUtils.logMessage("[[RobotOnGrid]] finding path to goal (" + (grid[0].length - 1) + ", " + (grid.length - 1) + ")", true);
         ArrayUtils.printMatrix(grid);
         int targetRow = grid.length;
         int targetColumn = grid[0].length;
         int[][] path = new int[targetRow][targetColumn];
         boolean found = foundPath(grid, path);
         if (found) {
-            LogUtils.logMessage("Found Path for Robot!!!");
+            LogUtils.logMessage("Found Path for Robot!!!", true);
             ArrayUtils.printMatrix(path);
         } else {
-            LogUtils.logMessage("No Path Found for Robot! No way to get to goal!!!");
+            LogUtils.logMessage("No Path Found for Robot! No way to get to goal!!!", true);
         }
     }
 

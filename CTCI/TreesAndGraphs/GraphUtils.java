@@ -1,9 +1,10 @@
 package CTCI.TreesAndGraphs;
 
-import DataStructures.GraphG;
-import DataStructures.GraphNodeG;
+import DataStructures.Graph.GraphG;
+import DataStructures.Graph.GraphNodeG;
 import DataStructures.QueueG;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,5 +62,38 @@ public class GraphUtils {
                 queue.add(nodeG);
             }
         }
+    }
+
+    public static boolean hasCycle(int[][] edges, int nodes) {
+        int[] parent = new int[nodes];
+        Arrays.fill(parent, -1);
+
+        for (int[] edge : edges) {
+            int from = edge[0];
+            int to = edge[1];
+
+            int parentFrom = findParent(from, parent);
+            int parentTo = findParent(to, parent);
+
+            if (parentFrom == parentTo) {
+                return true;
+            }
+
+            doUnion(parent, parentFrom, parentTo);
+        }
+
+        return false;
+    }
+
+    public static void doUnion(int[] parent, int x, int y) {
+        parent[x] = y;
+    }
+
+    public static int findParent(int node, int[] parent) {
+        if (parent[node] == -1) {
+            return node;
+        }
+
+        return findParent(parent[node], parent);
     }
 }

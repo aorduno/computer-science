@@ -20,9 +20,9 @@ public class BinaryToString {
 
         StringBuilder binaryStringBuilder = new StringBuilder(".");
         while (num > 0) {
-            // max length allowed is 32.
+            // max _length allowed is 32.
             if (binaryStringBuilder.length() >= 32) {
-                return "ERROR: max length allowed is 32";
+                return "ERROR: max _length allowed is 32";
             }
 
             double shifted = num * 2;

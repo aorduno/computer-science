@@ -21,14 +21,14 @@ public class MagicIndex {
     }
 
     private static void testCase(int[] numbers, boolean doDistinct) {
-        LogUtils.logMessage("[[MagicIndex" + (doDistinct ? "Distinct" : "NonDistinct") + "]] Finding magic index for given array of integers");
+        LogUtils.logMessage("[[MagicIndex" + (doDistinct ? "Distinct" : "NonDistinct") + "]] Finding magic index for given array of integers", true);
         ArrayUtils.print(numbers);
 
         int index = doDistinct ? findMagicIndex(numbers) : findMagicIndexNonDistinct(numbers);
         if (index == -1) {
-            LogUtils.logMessage("No magic index found!");
+            LogUtils.logMessage("No magic index found!", true);
         } else {
-            LogUtils.logMessage("Magic index found at: " + index);
+            LogUtils.logMessage("Magic index found at: " + index, true);
         }
     }
 

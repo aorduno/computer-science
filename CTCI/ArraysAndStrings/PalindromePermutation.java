@@ -5,8 +5,8 @@ package CTCI.ArraysAndStrings;
 // 1) a palidrome is a string that is it read the same from left to right and viceversa
 // 2) a permutation is a string that has the same letters but in different order
 // 3) thus, we can say a string is a permutation of palindrome...
-// 3.1) if string length is even then all letter count should be even
-// 3.2) if string length is odd then we could have at most one odd letter count
+// 3.1) if string _length is even then all letter count should be even
+// 3.2) if string _length is odd then we could have at most one odd letter count
 // 4) this is cover by the simple rule of... there's at most one odd letter count
 // 5) this assumes only letters from english vocabulary...
 public class PalindromePermutation {

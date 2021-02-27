@@ -81,7 +81,7 @@ public class CheckSubTree {
         }
         StringBuilder t1Sb = new StringBuilder();
         StringBuilder t2Sb = new StringBuilder();
-        // could also use char array instead and we could compare arr.length first but meh...
+        // could also use char array instead and we could compare arr._length first but meh...
         buildPreOrderStringWithBlanks(t1SubTree, t1Sb);
         buildPreOrderStringWithBlanks(t2, t2Sb);
 

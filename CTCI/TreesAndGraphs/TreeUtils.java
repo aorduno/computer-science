@@ -2,6 +2,7 @@ package CTCI.TreesAndGraphs;
 
 import DataStructures.TreeNodeG;
 import DataStructures.TreeNodeParent;
+import LeetCode.datastructures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,5 +112,15 @@ public class TreeUtils {
         }
 
         return null;
+    }
+
+    public static void printInOrder(TreeNode treeNode) {
+        if (treeNode == null) {
+            return;
+        }
+
+        printInOrder(treeNode.left);
+        System.out.print(treeNode.val + " ");
+        printInOrder(treeNode.right);
     }
 }

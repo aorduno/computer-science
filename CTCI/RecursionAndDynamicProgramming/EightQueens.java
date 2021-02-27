@@ -13,9 +13,9 @@ public class EightQueens {
     }
 
     private static void testCaseBook(int numberOfQueens) {
-        LogUtils.logMessage("[[NQueensBook]] Placing " + numberOfQueens + " queens in a chessBoard of " + numberOfQueens + " x " + numberOfQueens);
+        LogUtils.logMessage("[[NQueensBook]] Placing " + numberOfQueens + " queens in a chessBoard of " + numberOfQueens + " x " + numberOfQueens, true);
         char[][] board = createBoard(numberOfQueens);
-        LogUtils.logMessage("Board:");
+        LogUtils.logMessage("Board:", true);
         ArrayUtils.printMatrix(board);
 
         List<int[]> placed = doQueenPlacementsBook(board, numberOfQueens);
@@ -23,12 +23,12 @@ public class EightQueens {
     }
 
     private static void printAllWays(List<int[]> placed, int numberOfQueens) {
-        LogUtils.logMessage("Found " + placed.size() + " different ways of placing 8 queens...");
+        LogUtils.logMessage("Found " + placed.size() + " different ways of placing 8 queens...", true);
         for (int[] columns : placed) {
             char[][] board = new char[numberOfQueens][numberOfQueens];
             populateQueens(board, columns);
             ArrayUtils.printMatrix(board);
-            LogUtils.logMessage("DONE");
+            LogUtils.logMessage("DONE", true);
         }
     }
 
@@ -79,16 +79,16 @@ public class EightQueens {
     }
 
     private static void testCase(int n) {
-        LogUtils.logMessage("[[NQueens]] Placing " + n + " queens in a chessBoard of " + n + " x " + n);
+        LogUtils.logMessage("[[NQueens]] Placing " + n + " queens in a chessBoard of " + n + " x " + n, true);
         char[][] board = createBoard(n);
         ArrayUtils.printMatrix(board);
 
         boolean placed = doQueenPlacements(board, n);
         if (placed) {
-            LogUtils.logMessage("Placed, here's the board!");
+            LogUtils.logMessage("Placed, here's the board!", true);
             ArrayUtils.printMatrix(board);
         } else {
-            LogUtils.logMessage("Not possible to place!");
+            LogUtils.logMessage("Not possible to place!", true);
         }
     }
 

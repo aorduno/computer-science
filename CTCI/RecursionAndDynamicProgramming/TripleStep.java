@@ -18,7 +18,7 @@ public class TripleStep {
     }
 
     private static void testCase(int target, String computeType) {
-        LogUtils.logMessage("[[TripleStep" + computeType + "]] Finding number of ways for running up the stairs to " + target + " step");
+        LogUtils.logMessage("[[TripleStep" + computeType + "]] Finding number of ways for running up the stairs to " + target + " step", true);
         int ways = 0;
         switch (computeType) {
             case "recursive":
@@ -28,22 +28,22 @@ public class TripleStep {
                 ways = calculatePossibleWaysTopDown(target);
                 break;
             case "TopDownSpace":
-                ways = calculatePossibleWaysTopDownSpace(target);
+                ways = calculatePossibleWaysTopDownLessSpace(target);
                 break;
             default:
                 // ignore...
         }
 
-        LogUtils.logMessage("There are " + ways + " possible ways to get there");
+        LogUtils.logMessage("There are " + ways + " possible ways to get there", true);
     }
 
-    private static int calculatePossibleWaysTopDownSpace(int target) {
+    private static int calculatePossibleWaysTopDownLessSpace(int target) {
         int[] stepsMemo = new int[target + 3];
         Arrays.fill(stepsMemo, -1);
-        return calculateRecursivelyTopDownSpace(1, target, 0, stepsMemo) + calculateRecursivelyTopDownSpace(2, target, 0, stepsMemo) + calculateRecursivelyTopDownSpace(3, target, 0, stepsMemo);
+        return calculateRecursivelyTopDownLessSpace(1, target, 0, stepsMemo) + calculateRecursivelyTopDownLessSpace(2, target, 0, stepsMemo) + calculateRecursivelyTopDownLessSpace(3, target, 0, stepsMemo);
     }
 
-    private static int calculateRecursivelyTopDownSpace(int currentStep, int target, int waysCount, int[] stepsMemo) {
+    private static int calculateRecursivelyTopDownLessSpace(int currentStep, int target, int waysCount, int[] stepsMemo) {
         int stepKeyMemo = stepsMemo[currentStep];
         if (stepKeyMemo != -1) { // already computed this...
             return stepKeyMemo;
@@ -60,7 +60,7 @@ public class TripleStep {
             return waysCount + 1;
         }
 
-        return calculateRecursivelyTopDownSpace(currentStep + 1, target, waysCount, stepsMemo) + calculateRecursivelyTopDownSpace(currentStep + 2, target, waysCount, stepsMemo) + calculateRecursivelyTopDownSpace(currentStep + 3, target, waysCount, stepsMemo);
+        return calculateRecursivelyTopDownLessSpace(currentStep + 1, target, waysCount, stepsMemo) + calculateRecursivelyTopDownLessSpace(currentStep + 2, target, waysCount, stepsMemo) + calculateRecursivelyTopDownLessSpace(currentStep + 3, target, waysCount, stepsMemo);
     }
 
     // dynamic programming -- top down

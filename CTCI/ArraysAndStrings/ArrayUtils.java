@@ -1,5 +1,8 @@
 package CTCI.ArraysAndStrings;
 
+import CTCI.LogUtils;
+
+import java.util.Collection;
 import java.util.List;
 
 public class ArrayUtils {
@@ -28,6 +31,14 @@ public class ArrayUtils {
         System.out.println();
     }
 
+    public static void print(Collection<Object> elements) {
+        System.out.println("Printing list of elements.");
+        for (Object element : elements) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+
     public static void printMatrix(char[][] board) {
         for (char[] aMatrix : board) {
             for (char anAMatrix : aMatrix) {
@@ -35,5 +46,13 @@ public class ArrayUtils {
             }
             System.out.println();
         }
+    }
+
+    public static void print(String[] words) {
+        LogUtils.logMessage("Printing array of elements.", true);
+        for (String i : words) {
+            System.out.print(i + " ");
+        }
+        LogUtils.logMessage("", true);
     }
 }

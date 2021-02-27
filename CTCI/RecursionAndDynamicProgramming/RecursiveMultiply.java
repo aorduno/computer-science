@@ -17,8 +17,8 @@ public class RecursiveMultiply {
     }
 
     private static void testCase(int num1, int num2, boolean useBookApproach) {
-        LogUtils.logMessage("[[RecursiveMultiply" + (useBookApproach ? "Book" : "Custom") + "]] Multiplying " + num1 + " and " + num2 + " without * operator");
-        LogUtils.logMessage("Result: " + (useBookApproach ? multiply(num1, num2) : doMultiply(num1, num2)));
+        LogUtils.logMessage("[[RecursiveMultiply" + (useBookApproach ? "Book" : "Custom") + "]] Multiplying " + num1 + " and " + num2 + " without * operator", true);
+        LogUtils.logMessage("Result: " + (useBookApproach ? multiply(num1, num2) : doMultiply(num1, num2)), true);
     }
 
     // time complexity o(b) where b = number of bits in binary representation of the smallest number of the two given as input

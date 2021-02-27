@@ -17,17 +17,17 @@ public class PermutationNoDups {
     }
 
     private static void testCase(String string) {
-        LogUtils.logMessage("[[PermutationNoDups]] Calculating all permutations for given string: " + string);
+        LogUtils.logMessage("[[PermutationNoDups]] Calculating all permutations for given string: " + string, true);
         List<String> perms = computePermutations(string);
-        LogUtils.logMessage("Found " + perms.size() + " permutations:");
+        LogUtils.logMessage("Found " + perms.size() + " permutations:", true);
 //        print(perms);
     }
 
     private static void print(List<String> permutations) {
         for (String permutation : permutations) {
-            LogUtils.logMessage(permutation);
+            LogUtils.logMessage(permutation, true);
         }
-        LogUtils.logMessage("");
+        LogUtils.logMessage("", true);
     }
 
     private static List<String> computePermutations(String string) {
