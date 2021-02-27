@@ -64,12 +64,6 @@ public class RemoveDuplicateLetters {
         return sb.toString();
     }
 
-    private static boolean isNextLower(int a, List<Character> result) {
-        int aVal = result.get(a) - 'a';
-        int bVal = result.get(a + 1) - 'a';
-        return bVal < aVal;
-    }
-
     private static String computeResultNaive(String s) {
         List<String> results = computeResults(s);
         return findLexicographicallySmallest(results);
@@ -145,30 +139,6 @@ public class RemoveDuplicateLetters {
 
         // without
         computeResultsRecursively(s, currentIndex + 1, dupeVector, currentResult, uniqueChars, results);
-    }
-
-    private static void computeRecursively(String s, int currentIndex, StringBuilder result) {
-        if (currentIndex == s.length()) {
-            return;
-        }
-
-        int minIndex = -1;
-        int minValue = Integer.MAX_VALUE;
-        int lowestReference = currentIndex == -1 ? Integer.MIN_VALUE : s.charAt(currentIndex) - 'a';
-        for (int x = currentIndex + 1; x < s.length(); x++) {
-            int currentValue = s.charAt(x) - 'a';
-            if (currentValue > lowestReference && currentValue < minValue) {
-                minValue = currentValue;
-                minIndex = x;
-            }
-        }
-
-        if (minIndex == -1) {
-            return; // no more...
-        }
-
-        result.append(s.charAt(minIndex));
-        computeRecursively(s, minIndex, result);
     }
 
     // lowercase english letters only so we're fine...
