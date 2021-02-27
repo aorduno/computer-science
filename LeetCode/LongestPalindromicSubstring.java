@@ -7,9 +7,9 @@ public class LongestPalindromicSubstring {
         for (int length = 1; length <= str.length(); length++) {
             for (int start = 0; start + length <= str.length(); start++) {
                 int end = start + length - 1;
-                if (start == end) { // 1 length
+                if (start == end) { // 1 _length
                     isPalidromeCoord[start][end] = true;
-                } else if (start + 1 == end) { // 2 length
+                } else if (start + 1 == end) { // 2 _length
                     isPalidromeCoord[start][end] = str.charAt(start) == str.charAt(end);
                 } else {
                     isPalidromeCoord[start][end] = str.charAt(start) == str.charAt(end) && isPalidromeCoord[start + 1][end - 1];
@@ -29,7 +29,7 @@ public class LongestPalindromicSubstring {
             return s;
         }
 
-        int maxLength = 1; // if s length >= we know for sure each char is palindrome
+        int maxLength = 1; // if s _length >= we know for sure each char is palindrome
         int low; // low index
         int high; // high index
         int start = 0; // longest palindrome start position
