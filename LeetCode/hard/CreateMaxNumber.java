@@ -82,16 +82,4 @@ public class CreateMaxNumber {
         return length;
     }
 
-    private static int computeMaxIndex(int[] nums) {
-        int maxIndex = -1;
-        int maxValue = -1;
-        for (int x = 0; x < nums.length; x++) {
-            maxValue = Math.max(nums[x], maxValue);
-            if (maxIndex == -1 || nums[x] > nums[maxIndex]) {
-                maxIndex = x;
-            }
-        }
-
-        return maxIndex == -1 ? nums.length : maxIndex;
-    }
 }
