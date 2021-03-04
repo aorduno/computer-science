@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateMaxNumberPENDING {
+public class CreateMaxNumber {
     public static void main(String[] args) {
         int[] ints = {8, 8, 5, 9, 5, 9, 5, 5, 2, 6, 4, 3, 8, 4, 2, 6, 4, 3, 8, 4, 1, 6, 9, 1, 6, 9, 1, 1, 0, 7, 2, 9, 2, 8, 0, 7, 2, 9, 2, 8};
 
@@ -46,7 +46,7 @@ public class CreateMaxNumberPENDING {
     }
 
     private static void testCase(int[] m, int[] n, int k) {
-        LogUtils.logMessage("[[CreateMaxNumberPENDING]] Creating maximum number for give inputs...");
+        LogUtils.logMessage("[[CreateMaxNumber]] Creating maximum number for give inputs...");
         LogUtils.logMessage("m:");
         ArrayUtils.print(m);
         LogUtils.logMessage("n:");
