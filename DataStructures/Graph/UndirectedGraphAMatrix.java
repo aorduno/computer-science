@@ -1,4 +1,4 @@
-package DataStructures;
+package DataStructures.Graph;
 
 public class UndirectedGraphAMatrix {
     private final int _vertices;

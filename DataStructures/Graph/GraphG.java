@@ -1,4 +1,4 @@
-package DataStructures;
+package DataStructures.Graph;
 
 import CTCI.TreesAndGraphs.GraphUtils;
 

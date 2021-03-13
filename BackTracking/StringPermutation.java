@@ -32,7 +32,7 @@ public class StringPermutation {
         // there needs to be some recursion...
         // our recursive function will take a letter at the time and start building the permutation
         // also need to pass what's left to permute so...
-        // 1) our recursive function checks if the remaining is empty (no more chars to permute) and print it!
+        // 1) our recursive function checks if the remaining is empty (no more chars to permute) and printMatrix it!
         // 2) if there's more to permute we take that 1 char at the time, concat to our current permutation
         // and call our recursive with alternatives
         StringPermutation permuter = new StringPermutation();

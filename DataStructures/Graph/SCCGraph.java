@@ -1,4 +1,6 @@
-package DataStructures;// Java implementation of Kosaraju's algorithm to printMatrix all SCCs
+package DataStructures.Graph;// Java implementation of Kosaraju's algorithm to printMatrix all SCCs
+
+import DataStructures.Stack;
 
 import java.util.Iterator;
 import java.util.LinkedList;
