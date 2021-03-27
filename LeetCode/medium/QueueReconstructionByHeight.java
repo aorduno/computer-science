@@ -3,17 +3,34 @@ package LeetCode.medium;
 import CTCI.ArraysAndStrings.ArrayUtils;
 import CTCI.LogUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class QueueReconstructionByHeight {
+    private static Comparator<int[]> PEOPLE_COMPARATOR = new Comparator<int[]>() {
+        @Override
+        public int compare(int[] o1, int[] o2) {
+            return o1[1] == o2[1] ? o2[0] - o1[0] : o1[1] - o2[1];
+        }
+    };
+
+    private static Comparator<int[]> PEOPLE_COMPARATOR_SIMPLE = new Comparator<int[]>() {
+        @Override
+        public int compare(int[] o1, int[] o2) {
+            return o1[0] == o2[0] ? o1[1] - o2[1] : o2[0] - o1[0];
+        }
+    };
+
     public static void main(String[] args) {
         testCase(new int[][]{
                 {7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}
         });
+
         testCase(new int[][]{
                 {9, 0}, {7, 0}, {1, 9}, {3, 0}, {2, 7}, {5, 3}, {6, 0}, {3, 4}, {6, 2}, {5, 2}
+        });
+
+        testCase(new int[][]{
+                {2, 4}, {3, 4}, {9, 0}, {0, 6}, {7, 1}, {6, 0}, {7, 3}, {2, 5}, {1, 1}, {8, 0}
         });
     }
 
@@ -21,9 +38,70 @@ public class QueueReconstructionByHeight {
         LogUtils.logMessage("[[QueueReconstructionByHeight]] Reconstructing queue by height for given people");
         ArrayUtils.printMatrix(people);
 
-        int[][] queue = reconstructBrute(people);
+        int[][] queue = reconstructGreedySimple(people);
         print(queue);
 
+    }
+
+    private static int[][] reconstructGreedySimple(int[][] people) {
+        // sort by height DESC and people in front ASC
+        Arrays.sort(people, PEOPLE_COMPARATOR_SIMPLE);
+        LinkedList<int[]> queue = new LinkedList<>();
+        for (int[] person : people) {
+            queue.add(person[1], person);
+        }
+
+        return convert(queue);
+    }
+
+    private static int[][] reconstructGreedy(int[][] people) {
+        // sort by people in front
+        Arrays.sort(people, PEOPLE_COMPARATOR);
+        LinkedList<int[]> queue = new LinkedList<>();
+        for (int[] person : people) {
+            int addAt = findAddAt(person, queue);
+            queue.add(addAt, person);
+        }
+        return convert(queue);
+    }
+
+    private static int[][] convert(LinkedList<int[]> queue) {
+        int[][] result = new int[queue.size()][2];
+        int x = 0;
+        while (!queue.isEmpty()) {
+            result[x] = queue.removeFirst();
+            x++;
+        }
+
+        return result;
+    }
+
+    private static int findAddAt(int[] person, LinkedList<int[]> linkedList) {
+        if (linkedList.isEmpty()) {
+            return 0;
+        }
+
+        int addAt = 0;
+        int height = person[0];
+        int peopleInFront = person[1];
+        int foundInFront = 0;
+        while (addAt < linkedList.size()) {
+            int currentHeight = linkedList.get(addAt)[0];
+            if (peopleInFront == 0 && currentHeight >= height) {
+                break;
+            }
+
+            if (peopleInFront > 0 && peopleInFront == foundInFront) {
+                break;
+            }
+
+            if (currentHeight >= height) {
+                foundInFront++;
+            }
+
+            addAt++;
+        }
+        return addAt;
     }
 
     private static void print(int[][] queue) {
