@@ -7,8 +7,6 @@ import java.util.Map;
 
 public class LongestSubstringNoRepeatingChars {
     public static void main(String[] args) {
-        LogUtils.logMessage(Character.MAX_VALUE + "");
-        LogUtils.logMessage(Character.MIN_VALUE + "");
         testCase("abcabcbb");
         testCase("bbbbb");
         testCase("pwwkew");
