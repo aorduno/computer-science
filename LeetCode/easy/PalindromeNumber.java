@@ -4,14 +4,15 @@ import CTCI.LogUtils;
 
 public class PalindromeNumber {
     public static void main(String[] args) {
-        testCase(0);
-        testCase(-120);
-        testCase(252);
-        testCase(1234321);
-        testCase(-1234321);
-        testCase(6667666);
-        testCase(6667662);
-        testCase(1410110141);
+//        testCase(0);
+//        testCase(-120);
+//        testCase(252);
+//        testCase(1234321);
+//        testCase(-1234321);
+//        testCase(6667666);
+//        testCase(6667662);
+//        testCase(1410110141);
+        testCase(Integer.MAX_VALUE);
     }
 
     public int countSubstrings(String s) {
