@@ -14,12 +14,12 @@ public class PermutationInString {
 
     private static void test(String s1, String s2) {
         System.out.println("[[PermutationInString]] Checking if " + s2 + " contains any permutation of " + s1);
-        System.out.println("Result: " + computeInclusionBetter(s1, s2));
+        System.out.println("Result: " + computeInclusionWindowSliding(s1, s2));
     }
 
     // time complexity o(n * 26) n = length of s2
     // space complexity o(2 * 26) = o(52) = o(1) constant
-    private static boolean computeInclusionBetter(String s1, String s2) {
+    private static boolean computeInclusionWindowSliding(String s1, String s2) {
         int s1Length = s1.length();
         if (s1Length > s2.length() || s1Length == 0) {
             return false;
