@@ -2,6 +2,7 @@ package easy;
 
 import java.util.Stack;
 
+//https://leetcode.com/problems/valid-parentheses/
 public class ValidParenthesis {
     public static void main(String[] args) {
         test("]");
